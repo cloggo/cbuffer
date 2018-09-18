@@ -10,3 +10,4 @@ public:
 private:
   CBuffer<ROTARY_ENCODER_SENSE_t> buffer_;
 };
+```
