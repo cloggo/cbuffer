@@ -20,7 +20,7 @@
 template <class T>
 class CBuffer  {
 public:
-  CBuffer(size_t capacity);
+  CBuffer(std::size_t capacity);
   ~CBuffer();
 
   T* incFromRight() {return static_cast<T*>(cbuffer_.incFromRight());}
@@ -44,7 +44,7 @@ private:
 };
 
 template <class T>
-CBuffer<T>::CBuffer(size_t capacity)
+CBuffer<T>::CBuffer(std::size_t capacity)
   : vbuffer_(new T[capacity + 1]),
     cbuffer_(capacity, sizeof(T), vbuffer_) {
 }

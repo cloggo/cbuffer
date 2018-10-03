@@ -9,7 +9,7 @@
 #include "void_ptr_cbuffer.h"
 #include <cstring>
 
-VoidPtrCBuffer::VoidPtrCBuffer(size_t capacity, size_t offset, void* buffer)
+VoidPtrCBuffer::VoidPtrCBuffer(std::size_t capacity, std::size_t offset, void* buffer)
   : capacity_(capacity), offset_(offset),
     buffer_(static_cast<char*>(buffer)),
     left_(buffer_), right_(buffer_), end_(buffer_ + capacity_ * offset_) {
