@@ -9,7 +9,7 @@
 #ifndef VOID_PTR_CBUFFER_H
 #define VOID_PTR_CBUFFER_H
 
-#include <inttypes.h>
+#include <cstring>
 
 class VoidPtrCBuffer {
 public:

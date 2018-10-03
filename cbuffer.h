@@ -8,7 +8,7 @@
 #ifndef CBUFFER_H
 #define CBUFFER_H
 
-#include <inttypes.h>
+#include <cstring>
 #include "void_ptr_cbuffer.h"
 
 
