@@ -13,7 +13,7 @@
 
 class VoidPtrCBuffer {
 public:
-  VoidPtrCBuffer(uint32_t capacity, uint32_t offset, void* buffer);
+  VoidPtrCBuffer(size_t capacity, size_t offset, void* buffer);
   ~VoidPtrCBuffer();
 
   void* incFromRight();
@@ -27,8 +27,8 @@ protected:
   VoidPtrCBuffer& operator=(const VoidPtrCBuffer& rhs) {}
 
 private:
-  uint32_t capacity_;
-  uint32_t offset_;
+  size_t capacity_;
+  size_t offset_;
   char* buffer_;
   char* left_;
   char* right_;
