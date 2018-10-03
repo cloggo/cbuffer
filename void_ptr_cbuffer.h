@@ -32,7 +32,7 @@ private:
   char* buffer_;
   char* left_;
   char* right_;
-
+  char* end_;
 };
 
 

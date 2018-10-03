@@ -12,7 +12,7 @@
 VoidPtrCBuffer::VoidPtrCBuffer(uint32_t capacity, uint32_t offset, void* buffer)
   : capacity_(capacity), offset_(offset),
     buffer_(static_cast<char*>(buffer)),
-    left_(buffer_), right_(buffer_) {
+    left_(buffer_), right_(buffer_), end_(buffer_ + capacity_ * offset_) {
 }
 
 VoidPtrCBuffer::~VoidPtrCBuffer() {
@@ -26,7 +26,7 @@ void* VoidPtrCBuffer::decFromLeft() {
 
   void* tmp = left_;
 
-  if(left_ == (buffer_ + capacity_ * offset_)) {
+  if(left_ == end_) {
     left_ = buffer_;
   }
   else {
@@ -42,7 +42,7 @@ void* VoidPtrCBuffer::decFromRight() {
   }
 
   if(right_ == buffer_) {
-    right_ = buffer_ + capacity_ * offset_;
+    right_ = end_;
   }
   else {
     right_ -= offset_;
@@ -54,7 +54,7 @@ void* VoidPtrCBuffer::decFromRight() {
 void* VoidPtrCBuffer::incFromRight() {
   void* tmp = right_;
 
-  if(right_ == (buffer_ + capacity_ * offset_)) {
+  if(right_ == end_) {
     right_ = buffer_;
   }
   else {
@@ -62,7 +62,7 @@ void* VoidPtrCBuffer::incFromRight() {
   }
 
   if(left_ == right_) {
-    if(left_ == (buffer_ + capacity_ * offset_)) {
+    if(left_ == end_) {
       left_ = buffer_;
     }
     else {
